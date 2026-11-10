@@ -195,7 +195,7 @@ public class Theatre {
         int numberOfShows = Integer.parseInt(numberOfShowsInString);
         for (Director d : directors) {
             if (d.name.equals(name) && d.surname.equals(surname) && d.gender == gender &&
-                    d.numberOfShows == numberOfShows) {
+                    d.getNumberOfShows() == numberOfShows) {
                 return d;
             }
         }
@@ -298,7 +298,7 @@ public class Theatre {
                 String title = in.nextLine();
                 boolean isFoundShow = false;
                 for (Show sh : shows){
-                    if (sh.title.equals(title)){
+                    if (sh.getTitle().equals(title)){
                         addActorInShow(sh);
                         isFoundShow = true;
                         break;
@@ -313,7 +313,7 @@ public class Theatre {
                 String operaTitle = in.nextLine();
                 boolean isFoundOpera = false;
                 for (Opera o : operas){
-                    if (o.title.equals(operaTitle)){
+                    if (o.getTitle().equals(operaTitle)){
                         addActorInOpera(o);
                         isFoundOpera = true;
                         break;
@@ -328,7 +328,7 @@ public class Theatre {
                 String balletTitle = in.nextLine();
                 boolean isFoundBallet = false;
                 for (Ballet b : ballets){
-                    if (b.title.equals(balletTitle)){
+                    if (b.getTitle().equals(balletTitle)){
                         addActorInBallet(b);
                         isFoundBallet = true;
                         break;
@@ -351,7 +351,7 @@ public class Theatre {
         int height = Integer.parseInt(heightInString);
         boolean isfound = false;
         for (Actor a : actors) {
-            if (a.name.equals(name) && a.surname.equals(surname) && a.height == height) {
+            if (a.name.equals(name) && a.surname.equals(surname) && a.getHeight() == height) {
                 show.addActor(a);
                 isfound = true;
                 break;
@@ -369,7 +369,7 @@ public class Theatre {
         int height = Integer.parseInt(heightInString);
         boolean isfound = false;
         for (Actor a : actors) {
-            if (a.name.equals(name) && a.surname.equals(surname) && a.height == height) {
+            if (a.name.equals(name) && a.surname.equals(surname) && a.getHeight() == height) {
                 opera.addActor(a);
                 isfound = true;
                 break;
@@ -387,7 +387,7 @@ public class Theatre {
         int height = Integer.parseInt(heightInString);
         boolean isfound = false;
         for (Actor a : actors) {
-            if (a.name.equals(name) && a.surname.equals(surname) && a.height == height) {
+            if (a.name.equals(name) && a.surname.equals(surname) && a.getHeight() == height) {
                 ballet.addActor(a);
                 isfound = true;
                 break;
@@ -424,7 +424,7 @@ public class Theatre {
                 String title = in.nextLine();
                 boolean isFoundShow = false;
                 for (Show sh : shows){
-                    if (sh.title.equals(title)){
+                    if (sh.getTitle().equals(title)){
                         sh.printActors();
                         isFoundShow = true;
                         break;
@@ -439,7 +439,7 @@ public class Theatre {
                 String operaTitle = in.nextLine();
                 boolean isFoundOpera = false;
                 for (Opera o : operas){
-                    if (o.title.equals(operaTitle)){
+                    if (o.getTitle().equals(operaTitle)){
                         o.printActors();
                         isFoundOpera = true;
                         break;
@@ -454,7 +454,7 @@ public class Theatre {
                 String balletTitle = in.nextLine();
                 boolean isFoundBallet = false;
                 for (Ballet b : ballets){
-                    if (b.title.equals(balletTitle)){
+                    if (b.getTitle().equals(balletTitle)){
                         b.printActors();
                         isFoundBallet = true;
                         break;
@@ -478,7 +478,7 @@ public class Theatre {
                 String title = in.nextLine();
                 boolean isFoundOpera = false;
                 for (Opera o : operas){
-                    if (o.title.equals(title)){
+                    if (o.getTitle().equals(title)){
                         System.out.println(o.librettoText);
                         isFoundOpera = true;
                         break;
@@ -493,7 +493,7 @@ public class Theatre {
                 String balletTitle = in.nextLine();
                 boolean isFoundBallet = false;
                 for (Ballet b : ballets){
-                    if (b.title.equals(balletTitle)){
+                    if (b.getTitle().equals(balletTitle)){
                         System.out.println(b.librettoText);
                         isFoundBallet = true;
                         break;
@@ -513,7 +513,7 @@ public class Theatre {
         String title = in.nextLine();
         boolean isShowFound = false;
         for (Show sh : shows){
-            if (sh.title.equals(title)){
+            if (sh.getTitle().equals(title)){
                 isShowFound = true;
                 System.out.println("Введите имя, фамилию и рост актера которого хотите заменить");
                 String name = in.nextLine();
@@ -523,7 +523,7 @@ public class Theatre {
                 boolean isActorToRemoveFound = false;
                 for (Actor actorToRemove : actors) {
                     if (actorToRemove.name.equals(name) && actorToRemove.surname.equals(surname) &&
-                            actorToRemove.height == height) {
+                            actorToRemove.getHeight() == height) {
                         isActorToRemoveFound = true;
                         System.out.println("Введите имя, фамилию и рост нового актера");
                         String newName = in.nextLine();
@@ -533,7 +533,7 @@ public class Theatre {
                         boolean isNewActorFound = false;
                         for (Actor newActor : actors) {
                             if (newActor.name.equals(newName) && newActor.surname.equals(newSurname) &&
-                                    newActor.height == newHeight) {
+                                    newActor.getHeight() == newHeight) {
                                 sh.changeActor(actorToRemove, newActor);
                                 isNewActorFound = true;
                             }
@@ -552,7 +552,7 @@ public class Theatre {
         String title = in.nextLine();
         boolean isOperaFound = false;
         for (Opera o : operas){
-            if (o.title.equals(title)){
+            if (o.getTitle().equals(title)){
                 isOperaFound = true;
                 System.out.println("Введите имя, фамилию и рост актера которого хотите заменить");
                 String name = in.nextLine();
@@ -561,7 +561,7 @@ public class Theatre {
                 int height = Integer.parseInt(heightInString);
                 boolean isActorToRemoveFound = false;
                 for (Actor actorToRemove : actors) {
-                    if (actorToRemove.name.equals(name) && actorToRemove.surname.equals(surname) && actorToRemove.height == height) {
+                    if (actorToRemove.name.equals(name) && actorToRemove.surname.equals(surname) && actorToRemove.getHeight() == height) {
                         isActorToRemoveFound = true;
                         System.out.println("Введите имя, фамилию и рост нового актера");
                         String newName = in.nextLine();
@@ -570,7 +570,7 @@ public class Theatre {
                         int newHeight = Integer.parseInt(newHeightInString);
                         boolean isNewActorFound = false;
                         for (Actor newActor : actors) {
-                            if (newActor.name.equals(newName) && newActor.surname.equals(newSurname) && newActor.height == newHeight) {
+                            if (newActor.name.equals(newName) && newActor.surname.equals(newSurname) && newActor.getHeight() == newHeight) {
                                 o.changeActor(actorToRemove, newActor);
                                 isNewActorFound = true;
                             }
@@ -589,7 +589,7 @@ public class Theatre {
         String title = in.nextLine();
         boolean isBalletFound = false;
         for (Ballet ball : ballets){
-            if (ball.title.equals(title)){
+            if (ball.getTitle().equals(title)){
                 isBalletFound = true;
                 System.out.println("Введите имя, фамилию и рост актера которого хотите заменить");
                 String name = in.nextLine();
@@ -598,7 +598,7 @@ public class Theatre {
                 int height = Integer.parseInt(heightInString);
                 boolean isActorToRemoveFound = false;
                 for (Actor actorToRemove : actors) {
-                    if (actorToRemove.name.equals(name) && actorToRemove.surname.equals(surname) && actorToRemove.height == height) {
+                    if (actorToRemove.name.equals(name) && actorToRemove.surname.equals(surname) && actorToRemove.getHeight() == height) {
                         isActorToRemoveFound = true;
                         System.out.println("Введите имя, фамилию и рост нового актера");
                         String newName = in.nextLine();
@@ -607,7 +607,7 @@ public class Theatre {
                         int newHeight = Integer.parseInt(newHeightInString);
                         boolean isNewActorFound = false;
                         for (Actor newActor : actors) {
-                            if (newActor.name.equals(newName) && newActor.surname.equals(newSurname) && newActor.height == newHeight) {
+                            if (newActor.name.equals(newName) && newActor.surname.equals(newSurname) && newActor.getHeight() == newHeight) {
                                 ball.changeActor(actorToRemove, newActor);
                                 isNewActorFound = true;
                             }

@@ -1,5 +1,5 @@
 public class Director extends Person{
-    int numberOfShows;
+    private int numberOfShows;
 
 
     public Director(String name, String surname, Gender gender, int numberOfShows) {
@@ -11,5 +11,8 @@ public class Director extends Person{
     public String toString(){
         return "Director{" + "name='" + name + "', surname='" + surname + "', gender=" + gender + ", numberOfShows=" +
                 numberOfShows + "}";
+    }
+    public int getNumberOfShows(){
+        return numberOfShows;
     }
 }

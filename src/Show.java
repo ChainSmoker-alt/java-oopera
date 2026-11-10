@@ -2,10 +2,10 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Show {
-    String title;
-    int duration;
-    Director director;
-    ArrayList<Actor> listOfActors;
+    protected String title;
+    protected int duration;
+    protected Director director;
+    protected ArrayList<Actor> listOfActors;
 
     public Show(String title, int duration, Director director, ArrayList<Actor> listOfActors) {
         this.title = title;
@@ -62,5 +62,8 @@ public class Show {
     @Override
     public String toString() {
         return "Show{title='" + title + "', duration=" + duration + ", director=" + director + "}";
+    }
+    public String getTitle(){
+        return title;
     }
 }
